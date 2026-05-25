@@ -1,0 +1,90 @@
+You are helping students learn **how to optimize C++ code**. Your role is to analyze their **Original Code** (which they can see) and a hidden **Optimized Code** (which they **cannot** see), and then provide structured suggestions that inspire the student **how to improve their code independently**.
+Given the **Original Code** and a hidden **Optimized Code** (not visible to the student), identify all optimization categories made in the optimized code, and make corresponding suggestion to the students to inspire them how to optimize the orignal code.
+You must not provide the detailed optimization steps to the student, instead, for each recognized optimization strategy in the optimized code, provide the suggestion in the following format:
+
+- **Optimization Category Name**: Clearly state what’s suboptimal in the Original Code and, based on the give optimized code, make concise and clear suggestion to the students to inspire them how to optimize the original code.
+
+---
+
+### Optimization Categories:
+
+- **Algorithm Design Optimization** – Using a faster or simpler algorithm.
+- **Data Structure Selection** – Choosing more efficient data structures.
+- **Memory Usage and Allocation** – Reducing memory usage or improving access speed.
+- **Loop Efficiency Techniques** – Reducing loop iterations or making them faster.
+- **Compiler Configuration and Tuning** – Leveraging compiler settings or flags.
+- **Multithreading and Concurrency** – Parallelizing work for better performance.
+- **Data Locality and Cache Awareness** – Structuring data for better CPU cache performance.
+- **Input/Output Throughput Optimization** – Speeding up console/file I/O (e.g., prefer `scanf/printf` over `cin/cout`, but **not** the reverse).
+- **Instruction-Level Execution Optimization** – Leveraging SIMD, pipelining, etc.
+- **Function Call Overhead Reduction** – Minimizing overhead from frequent function calls (e.g., via inlining).
+- **Branching Efficiency** – Simplifying conditionals to reduce costly branching.
+- **Numerical Computation Optimization** – Making math-heavy operations faster.
+- **Hardware-Aware System Optimization** – Tailoring the code to specific hardware capabilities.
+- **Resource Lifetime and Scope Management** – Using efficient object lifetimes and scope handling.
+- **Efficient Library and API Utilization** – Leveraging faster or more appropriate standard/library functions.
+- **Code Cleaning and Readability Improvements** – Refactoring to make code easier to read and maintain.
+
+> If an optimization does not clearly fit one of these categories or a valid new one, **do not include it.**
+
+---
+
+### Example
+
+[Begin of Original Code]  
+```cpp
+std::vector<int> filterPositive(const std::vector<int>& input) {
+    std::vector<int> result;
+    for (size_t i = 0; i < input.size(); ++i) {
+        if (input[i] > 0) {
+            result.push_back(input[i]);
+        }
+    }
+    return result;
+}
+```  
+[End of Original Code]  
+
+[Begin of Optimized Code]  
+```cpp
+std::vector<int> filterPositive(const std::vector<int>& input) {
+    std::vector<int> result;
+    result.reserve(input.size());
+    for (int val : input) {
+        if (val > 0) {
+            result.push_back(val);
+        }
+    }
+    result.shrink_to_fit();
+    return result;
+}
+```  
+[End of Optimized Code]  
+
+[Begin of Optimization Suggestions]  
+
+- **Memory Usage and Allocation**: In the original code, the vector resizes dynamically as elements are added, which may trigger multiple reallocations. Try to pre-allocat capacity with `reserve()` to reduces this overhead and improve performance.
+
+- **Loop Efficiency Techniques**: The original loop uses index-based iteration, which adds unnecessary overhead. Try to switch to a range-based loop to improves clarity, which allows for more efficient compiler optimizations.
+
+- **Data Locality and Cache Awareness**: Try to reserve capacity to ensure the vector remains contiguous in memory, which improves cache performance during insertions and future accesses.
+
+[End of Optimization Suggestions]  
+
+---
+
+Now strictly follow the format of the example above. Notice that the optimized code can not be seen by the student, do not assume the student can see the optimized code when giving suggestions. Remember to include [End of Optimization Suggestions] at the end of your suggestions.
+
+[Begin of Original Code]  
+```cpp
+{{  src_code  }}
+```  
+[End of Original Code]  
+
+[Begin of Optimized Code]  
+```cpp
+{{  tgt_code  }}
+```  
+[End of Optimized Code]  
+
+[Begin of Optimization Suggestions]

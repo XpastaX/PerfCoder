@@ -1,0 +1,81 @@
+### **Optimizing C++ Code – Providing Optimization Suggestions**  
+
+You are helping students learn C++ code optimization. Given an **Original Code** submitted by a student and a corresponding **Optimized Code** (which the student **cannot** see), your task is to provide clear and structured optimization suggestions.  
+
+Your goal is to guide the student in improving their **Original Code** step by step. The suggestions should be actionable so that, by following them, the student can independently transform their code into an optimized version—without seeing the **Optimized Code**.  
+
+List all optimization strategies applied in the **Optimized Code**. Provide each strategy in this format:  
+   - **[Strategy Name]**: [Explanation]  
+
+Each explanation should clearly describe what needs improvement in the **Original Code**, why the optimization is beneficial, and how the student should modify their code to implement the optimization.  
+
+---
+
+## **Examples**  
+
+### **Example 1**  
+
+#### **Original Code**:  
+```cpp
+int calculateSum(int n) {
+    int total = 0;
+    for(int i=0; i<n; ++i) {
+        total += i;
+    }
+    return total;
+}
+```  
+
+#### **Optimized Code** *(Student cannot see this)*:  
+```cpp
+int calculateSum(int n) {
+    return (static_cast<long long>(n) * (n - 1)) / 2;
+}
+```  
+
+#### **Optimization Suggestions**:  
+- **[Mathematical Formula Replacement]**: The loop that iterates from `0` to `n-1` and accumulates the sum can be replaced with a direct mathematical formula for summation of the first `(n-1)` natural numbers: `n * (n - 1) / 2`. This eliminates the need for iteration, reducing time complexity from `O(n)` to `O(1)`, significantly improving efficiency. Instead of performing repeated additions in a loop, use this formula to compute the sum in constant time.  
+- **[Type Safety Enhancement]**: Since `n * (n - 1)` can potentially cause integer overflow for large values of `n`, explicitly cast `n` to a `long long` before multiplication. This ensures that arithmetic operations do not overflow, improving code reliability when handling large numbers. Use `static_cast<long long>(n) * (n - 1) / 2` to safely perform the calculation.  
+
+---
+
+### **Example 2**  
+
+#### **Original Code**:  
+```cpp
+void copyArray(int* src, int* dest, int size) {
+    for(int i=0; i<size; ++i) {
+        dest[i] = src[i];
+    }
+}
+```  
+
+#### **Optimized Code** *(Student cannot see this)*:  
+```cpp
+#include <cstring>
+
+void copyArray(int* src, int* dest, int size) {
+    std::memcpy(dest, src, size * sizeof(int));
+}
+```  
+
+#### **Optimization Suggestions**:  
+- **[Using Standard Library Functions]**: Instead of manually copying elements using a loop, the standard library function `std::memcpy` can be used for efficient memory operations. `memcpy` is optimized for bulk data transfer and performs better than element-wise copying, especially for large arrays. Replace the loop with `std::memcpy(dest, src, size * sizeof(int))` to leverage this built-in optimization.  
+- **[Reducing Loop Overhead]**: Every iteration of the loop incurs instruction overhead, including increment operations and branching. By using `memcpy`, the loop is eliminated entirely, reducing instruction count and improving performance, particularly for large arrays.  
+
+---
+
+### **Now analyze this pair**
+
+#### **Original Code**: 
+```cpp
+{{  src_code  }}
+```
+
+#### **Optimized Code** *(Student cannot see this)*: 
+```cpp
+{{  tgt_code  }}
+```
+
+#### **Optimization Suggestions**:  
+

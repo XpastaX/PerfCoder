@@ -1,0 +1,12 @@
+Strictly follow the provided **Optimization Suggestions** to optimize the provided C++ source code for better execution speed while maintaining its functional correctness. 
+
+
+#### **Source Code**:
+
+```cpp
+{{  src_code  }}
+```
+
+{{  suggestion  }}
+
+#### **Optimized Code**:

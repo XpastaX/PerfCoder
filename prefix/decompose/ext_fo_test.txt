@@ -1,0 +1,7 @@
+Your task is to analyze the given C++ code, provide optimization suggestions, and then apply those optimizations to improve performance while ensuring correctness.
+
+**Source Code**:
+```cpp
+{{  src_code  }}
+```
+

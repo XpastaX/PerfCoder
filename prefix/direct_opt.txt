@@ -1,0 +1,13 @@
+Optimize the provided C++ source code for better execution speed while maintaining its functional correctness.
+
+**Source Code:**
+
+```cpp
+{{  src_code  }}
+```
+
+**Optimized Code:**
+
+```cpp
+{{  tgt_code  }}
+```

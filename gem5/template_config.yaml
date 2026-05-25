@@ -1,0 +1,7 @@
+model_generated_outputs_path: "result/pred/CL_SFT_lora.jsonl"
+reference_file_path: "data/PIE/test_c20_eval.jsonl" # The path to the reference file. This should be the reference .jsonl file containing the reference outputs in addition to all other metadata in the test set file.
+output_dir: "result/eval/sft_lora"
+is_prompt_based: False # should always be False
+cpus_available: -1
+model_generated_potentially_faster_code_col: "CL_SFT_lora" # column in the model-generated outputs that contains the generated code, it should be a list of strings
+num_problems_to_evaluate: -1 # -1 means evaluate all problems
