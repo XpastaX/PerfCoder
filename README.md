@@ -1,6 +1,7 @@
-<p style="color:red;"><strong>This repository is no longer maintained.</strong></p>
-
-<p style="color:red;"><strong>Please refer to <a href="https://github.com/BiSheng-Compiler-Agents/PerfCoder">PerfCoder</a> for the latest updates.</strong></p>
+> [!CAUTION]
+> **This repository is no longer maintained.**
+>
+> **Please refer to [PerfCoder](https://github.com/BiSheng-Compiler-Agents/PerfCoder) for the latest updates.**
 
 
 # PerfCoder
