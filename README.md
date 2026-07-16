@@ -1,3 +1,8 @@
+**This repository is no longer maintained.**
+
+**Please refer to [PerfCoder](https://github.com/BiSheng-Compiler-Agents/PerfCoder) for the latest updates.**
+
+
 # PerfCoder
 
 **PerfCoder** is a framework for training large language models to optimize C/C++ code for execution speed. It is built on top of [PIE](https://github.com/LearningOpt/pie), [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) (for SFT) and [Open-R1 / TRL](https://github.com/huggingface/open-r1) (for GRPO). The framework is composed of three stages:
